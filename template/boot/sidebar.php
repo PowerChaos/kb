@@ -68,33 +68,65 @@ if (u())
   </div>
  	<!-- Dynamic SiteBar -->
 <div class="navbar-fixed-left">
+<ul id="tree1">
+<?php
+require(getenv("DOCUMENT_ROOT")."/functions/database.php");
+	try{	
+$stmt = $db->prepare("SELECT * FROM hc");
+$stmt->execute();
+$result = $stmt->fetchall(PDO::FETCH_ASSOC);
 
-	<ul id="tree1">
-	<!-- HoofdCategory -->
-		<li><a href="#">HoofdCategory</a>
-	<!-- HoofdCategory -->	
-			<ul>
-	<!-- SubCategory -->		
-				<li>SubCategory</li>
-				<li>SubCategory
-	<!-- SubCategory -->			
-					<ul>
-	<!--Posts -->				
-								<li>Post</li>
-								<li>Post</li>
-								<li>Post</li>
-	<!--Posts -->							
-							</ul>
-						</li>
-	<!-- SubCategory -->					
-				<li>SubCategory</li>
-	<!-- SubCategory -->			
-			</ul>
-		</li>
-	<!-- HoofdCategory -->	
-		<li>HoofdCategory</li>
-	<!-- HoofdCategory -->	
-	</ul>			
+}//end try
+	catch(Exception $e) {
+    echo '<h2><font color=red>';
+    var_dump($e->getMessage());
+	die ('</h2></font> ');
+}
+	foreach($result as $info) {
+echo "<li>$info[naam]";
+echo "<ul>";
+
+	try{
+$hc = $info[id];		
+$stmthc = $db->prepare("SELECT * FROM shc where hc =:hc");
+$stmthc->execute(array(':hc' => $hc));
+$resultsub = $stmthc->fetchall(PDO::FETCH_ASSOC);
+
+}//end try
+	catch(Exception $e) {
+    echo '<h2><font color=red>';
+    var_dump($e->getMessage());
+	die ('</h2></font> ');
+}
+
+foreach($resultsub as $sub) {
+echo "<li>$sub[naam]";
+echo "<ul>";
+
+	try{
+$subhc = $sub[id];		
+$stmtsubhc = $db->prepare("SELECT * FROM posts where shc =:subhc");
+$stmtsubhc->execute(array(':subhc' => $subhc));
+$resultpost = $stmtsubhc->fetchall(PDO::FETCH_ASSOC);
+
+}//end try
+	catch(Exception $e) {
+    echo '<h2><font color=red>';
+    var_dump($e->getMessage());
+	die ('</h2></font> ');
+}
+
+foreach($resultpost as $post) {
+echo "<li><a href='../post/$post[id]'>$post[naam]</a></li>";
+}
+echo "</ul>";
+}
+echo "</li>";
+echo "</ul>";
+echo "</li>";
+}
+?>
+</ul>			
 </div>
 	<!-- Dynamic SiteBar --> 
 </nav>
