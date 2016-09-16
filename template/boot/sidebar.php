@@ -25,14 +25,16 @@ if (u())
 		</div>
       <ul class="nav navbar-nav navbar-right">
 	  	  	  <?php
-	  if ((s()) && (!isset($_SESSION[admin])))
+	  if (s())
 	  {
 ?>		
 		<li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Staff Menu
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Post Menu
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-        <li><a href="#">Nog Niets</a></li>		  
+        <li><a href="../s/nieuw">Nieuwe Post</a></li>
+		<li><a href="../s/bewerk">Bewerk Post</a></li>
+		<li><a href="../s/lijst">zie all posten</a></li>		
         </ul>
       </li>
 <?php		

@@ -49,9 +49,37 @@ $_SESSION[ERROR]="";
 }
 if (u())
 {
+echo "<h1>".$_SESSION[ERROR]."</h1>";
+$_SESSION[ERROR] ="";
+require(getenv("DOCUMENT_ROOT")."/functions/database.php");
+	try{	
+$stmt = $db->prepare("SELECT * FROM hc");
+$stmt->execute();
+$result = $stmt->fetchall(PDO::FETCH_ASSOC);
 ?>
-Selecteer een post uit de menu aub
+<div class="alert alert-info">
+ OverZicht HoofdCategories
+</div>
+<table border=1 id='groep' class="table table-striped table-bordered table-hover">
+  <thead>
+  <tr>	
+	<td>ID</td>
+	<td>Naam</td>
+	</tr>
+</thead>
+<tbody>	
 <?php
+foreach($result as $info) {
+echo "<tr><td class=warning >$info[id]</td>";
+echo "<td class=success><a href='../sub/$info[id]'>$info[naam]</a></td>";
+}
+echo "</tbody></table>";
+}//end try
+	catch(Exception $e) {
+    echo '<h2><font color=red>';
+    var_dump($e->getMessage());
+	die ('</h2></font> ');
+}
 }// Einde start sessie
 ?>
 
