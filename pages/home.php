@@ -53,7 +53,23 @@ echo "<h1>".$_SESSION[ERROR]."</h1>";
 $_SESSION[ERROR] ="";
 require(getenv("DOCUMENT_ROOT")."/functions/database.php");
 	try{	
-$stmt = $db->prepare("SELECT * FROM hc");
+$stmt = $db->prepare("SELECT
+hc.naam as hn,
+posts.id as pid,
+posts.shc,
+posts.naam as pn,
+posts.info as pi,
+shc.id,
+shc.hc,
+shc.naam as sn,
+hc.id
+FROM
+hc ,
+posts ,
+shc
+WHERE
+posts.shc = shc.id AND
+shc.hc = hc.id");
 $stmt->execute();
 $result = $stmt->fetchall(PDO::FETCH_ASSOC);
 ?>
@@ -63,15 +79,23 @@ $result = $stmt->fetchall(PDO::FETCH_ASSOC);
 <table border=1 id='groep' class="table table-striped table-bordered table-hover">
   <thead>
   <tr>	
-	<td>ID</td>
-	<td>Naam</td>
+	<td>HoofdGroep</td>
+	<td>SubGroep</td>
+	<td>Post</td>
+	<td>Info</td>
 	</tr>
 </thead>
 <tbody>	
 <?php
 foreach($result as $info) {
-echo "<tr><td class=warning >$info[id]</td>";
-echo "<td class=success><a href='../sub/$info[id]'>$info[naam]</a></td>";
+echo "<tr>";
+echo "<td class=warning >$info[hn]</td>";
+echo "<td class=warning >$info[sn]</td>";
+echo "<td class=success><a href='../post/$info[pid]'>$info[pn]</a></td>";
+$in = $info[pi];
+$out = strlen($in) > 50 ? substr($in,0,50)."..." : $in;
+echo "<td class=info >$out</td>";
+echo "</tr>";
 }
 echo "</tbody></table>";
 }//end try
