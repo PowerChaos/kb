@@ -50,7 +50,8 @@ $('document').ready(function()
      }
 	 else if(data == 0){
          
-      $("#login-form").html('<center>Geen Toegang<br><img src="../ajax/na.png" /><br>Contacteer een Verandwoordelijke');
+      $("#login-form").html('<center>Geen Toegang<br><img src="../ajax/na.png" /><br>Contacteer een Verandwoordelijke</center><script>$(document).ready(function(){setTimeout(function() {location.reload();}, 3500);});</script>'
+	  );
      }
      else{
          

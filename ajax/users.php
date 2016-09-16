@@ -3,6 +3,8 @@ require(getenv("DOCUMENT_ROOT")."/functions/database.php");
 if ($_POST['bewerk'] == "blokeer")
 {
 	$id = $_POST['id'];
+	if ($id > 1)
+	{
 	try{
 	$stmt = $db->prepare("update gebruikers SET rechten='b' WHERE id =:id ORDER BY id");
 	$stmt->execute(array(':id' => $id));
@@ -13,11 +15,18 @@ if ($_POST['bewerk'] == "blokeer")
     var_dump($e->getMessage());
 	die ('</h2></font> ');
 }	
-echo 'success';	
+$_SESSION[ERROR] = "Gebruiker $id successvol geblokeerd";
+}
+else
+{
+$_SESSION[ERROR] = "Gebruiker $id kan niet worden geblokeerd Voor Veiligheid";
+}			
 }
 if ($_POST['bewerk'] == "deblokeer")
 {
 	$id = $_POST['id'];
+	if ($id > 1)
+	{
 	try{
 	$stmt = $db->prepare("update gebruikers SET rechten='0' WHERE id =:id ORDER BY id");
 	$stmt->execute(array(':id' => $id));
@@ -28,11 +37,18 @@ if ($_POST['bewerk'] == "deblokeer")
     var_dump($e->getMessage());
 	die ('</h2></font> ');
 }	
-echo 'success';	
+$_SESSION[ERROR] = "Gebruiker $id successvol geDeblokeerd";		
+}
+else
+{
+$_SESSION[ERROR] = "Gebruiker $id kan niet worden gedeblokeerd Voor Veiligheid";
+}
 }
 if ($_POST['bewerk'] == "delete")
 {
 	$id = $_POST['id'];
+	if ($id > 1)
+	{
 	try{
 	$stmt = $db->prepare("DELETE FROM gebruikers WHERE id =:id ORDER BY id");
 	$stmt->execute(array(':id' => $id));
@@ -43,7 +59,12 @@ if ($_POST['bewerk'] == "delete")
     var_dump($e->getMessage());
 	die ('</h2></font> ');
 }	
-echo 'success';	
+$_SESSION[ERROR] = "Gebruiker $id successvol verwijderd";		
+}
+else
+{
+$_SESSION[ERROR] = "Gebruiker $id kan niet worden verwijderd Voor Veiligheid";
+}
 }
 ?>
 <script>
@@ -66,7 +87,7 @@ if ($_POST['groep'] == "blokeer")
 <table border=1 class="table table-striped table-bordered table-hover">
 <thead>
 <tr>
-    <th><center>Blokeer id <?php echo $_POST['waarde'];?></center></th>
+    <th><center>Blokeer <font color='red'>id <?php echo $_POST['waarde'];?></font></center></th>
 	</tr>
 </thead>
 <tbody>	
@@ -84,12 +105,30 @@ elseif ($_POST['groep'] == "deblokeer")
 <table border=1 class="table table-striped table-bordered table-hover">
 <thead>
 <tr>
-    <th><center>deBlokeer id <?php echo $_POST['waarde'];?></center></th>
+    <th><center>deBlokeer <font color='red'>id <?php echo $_POST['waarde'];?></font></center></th>
 	</tr>
 </thead>
 <tbody>	
 <tr class='info'>
 <td><center><button TYPE="submit" class='btn btn-success' VALUE="deblokeer" id="<?php echo $_POST['waarde']; ?>" onclick="werkbij(this.id,'deblokeer');"><i class='material-icons' title='deBlokeer' aria-hidden='true'>lock_open</i><span class="sr-only">deBlokeer</span></button></center></td>
+</tr>
+</tbody>
+</table>
+<br>
+<?php
+}
+elseif ($_POST['groep'] == "verwijder")
+{
+?>
+<table border=1 class="table table-striped table-bordered table-hover">
+<thead>
+<tr>
+    <th><center>verwijder <font color='red'>id <?php echo $_POST['waarde'];?></font></center></th>
+	</tr>
+</thead>
+<tbody>	
+<tr class='info'>
+<td><center><button TYPE="submit" class='btn btn-danger' VALUE="delete" id="<?php echo $_POST['waarde']; ?>" onclick="werkbij(this.id,'delete');"><i class='material-icons' title='verwijder' aria-hidden='true'>delete_forever</i><span class="sr-only">verwijder</span></button></center></td>
 </tr>
 </tbody>
 </table>
@@ -103,10 +142,10 @@ elseif ($_POST['groep'] == "rechten")
 <form action="../invoer" method="POST" class='text-center'>
 <input type="hidden" name="users" value="rechten">
 <input type="hidden" name="id" value="<?php echo $_POST['waarde'] ?>">
-<table border=1 class="table table-striped table-bordered table-hover">
+<table border=1 class="table table-striped table-bordered table-hover text-center">
 <thead>
 <tr>
-	<th>Pas Rechten aan voor <?php echo $_POST['waarde'];?></th>
+	<th><center>Pas Rechten aan voor <font color='red'>id <?php echo $_POST['waarde'];?></font></center></th>
 	</tr>
 <thead>
 <tbody>
@@ -144,10 +183,10 @@ $account = $stmt->fetch(PDO::FETCH_ASSOC);
 <form action="../invoer" method="POST" class='text-center'>
 <input type="hidden" name="users" value="hernoem">
 <input type="hidden" name="id" value="<?php echo $_POST['waarde'] ?>">
-<table border=1 class="table table-striped table-bordered table-hover">
+<table border=1 class="table table-striped table-bordered table-hover text-center">
 <thead>
 <tr>
-	<th>Pas Naam aan voor <?php echo $account['naam'];?></th>
+	<th><center>Pas Naam aan voor <font color='red'><?php echo $account['naam'];?></font></center></th>
 	</tr>
 <thead>
 <tbody>
@@ -168,17 +207,21 @@ elseif ($_POST['groep'] == "toevoegen")
 ?>
 <form action="../invoer" method="POST" class='text-center'>
 <input type="hidden" name="users" value="toevoegen">
-<table border=1 class="table table-striped table-bordered table-hover">
+<table border=1 class="table table-striped table-bordered table-hover text-center">
 <thead>
 <tr>
-	<th>Naam</th>
+	<th><center>Gebruikers Naam</center></th>
+	<th><center>wachtwoord</center></th>
 	</tr>
 <thead>
 <tbody>
 <tr>						
 	<td>
 <input type="text" name="naam" value='Naam Gebruiker' onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Naam Gebruiker';}"><br>
-	</td>	
+	</td>
+<td>
+<input type="text" name="wachtwoord" value='Nieuw Wachtwoord' onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Wachtwoord';}">
+</td>	
   </tr>
  </tbody>
 </table>
@@ -196,7 +239,7 @@ elseif ($_POST['groep'] == "wachtwoord")
 <table border=1 class="table table-striped table-bordered table-hover text-center">
 <thead>
 <tr>
-	<th>Nieuw Wachtwoord</th>
+	<th><center>Nieuw Wachtwoord voor <font color='red'>id <?php echo $_POST['waarde']?></font></center></th>
 	</tr>
 <thead>
 <tbody>
@@ -207,7 +250,7 @@ elseif ($_POST['groep'] == "wachtwoord")
   </tr>
  </tbody>
 </table>
-<button TYPE="submit" class='btn btn-success' VALUE="Verander"><i class='material-icons' title='Rechten aanpassen' aria-hidden='true'>vpn_key</i><span class="sr-only">Verander</span></button>
+<button TYPE="submit" class='btn btn-success' VALUE="Verander"><i class='material-icons' title='Nieuw Wachtwoord' aria-hidden='true'>vpn_key</i><span class="sr-only">Verander</span></button>
 </form>	
 <br>
 <?php

@@ -50,6 +50,7 @@ foreach($result as $info) {
 echo "<tr><td class=warning >$info[id]</td>";
 echo "<td class=success>$info[naam]</td>";
 $groep = $info['rechten'];
+$ban ='n';
 switch ($groep) {
         case "3":
         $groep = "<td class=success><i class='material-icons' title='Admin' aria-hidden='true'>star</i><span class='sr-only'>Admin</span></td>";
@@ -59,7 +60,8 @@ switch ($groep) {
         break;
     case "b":
         $groep = "<td class=danger><i class='material-icons' title='Geblokeerd' aria-hidden='true'>not_interested</i><span class='sr-only'>Geblokeerd</span></td>";
-        break;
+        $ban='y';
+		break;
     default:
         $groep = "<td class=info><i class='material-icons' title='Gebruiker' aria-hidden='true'>star_border</i><span class='sr-only'>Gebruiker</span></td>";
 }
@@ -72,9 +74,12 @@ echo "<td class=active>";
   <li><a href='#' data-toggle='modal' data-target='#modal' id='<?php echo $info[id];?>' onclick='bewerk(this.id,"wachtwoord");'><i class='material-icons' title='wachtwoord' aria-hidden='true'>vpn_key</i> Wachtwoord<span class='sr-only'>Wachtwoord</span>
     <li><a href='#' data-toggle='modal' data-target='#modal' id='<?php echo $info[id];?>' onclick='bewerk(this.id,"rechten");'><i class='material-icons' title='Rechten' aria-hidden='true'>group</i> Rechten<span class='sr-only'>Rechten</span>
     <li><a href='#' data-toggle='modal' data-target='#modal' id='<?php echo $info[id];?>' onclick='bewerk(this.id,"hernoem");'><i class='material-icons' title='Naam' aria-hidden='true'>person</i> Naam<span class='sr-only'>Naam</span>
+<?php if ($ban == 'n'){ ?>
 	<li><a href='#' data-toggle='modal' data-target='#modal' id='<?php echo $info[id];?>' onclick='bewerk(this.id,"blokeer");'><i class='material-icons' title='Blokeer' aria-hidden='true'>lock</i> Blokeer<span class='sr-only'>Blokeer</span>
+<?php }else{ ?>
 	<li><a href='#' data-toggle='modal' data-target='#modal' id='<?php echo $info[id];?>' onclick='bewerk(this.id,"deblokeer");'><i class='material-icons' title='DeBlokeer' aria-hidden='true'>lock_open</i> DeBlokeer<span class='sr-only'>deBlokeer</span>
-
+<?php } ?>
+	<li><a href='#' data-toggle='modal' data-target='#modal' id='<?php echo $info[id];?>' onclick='bewerk(this.id,"verwijder");'><i class='material-icons' title='verwijder' aria-hidden='true'>cancel</i> Verwijder<span class='sr-only'>verwijder</span>
 	</ul>
 </div>
 </td>

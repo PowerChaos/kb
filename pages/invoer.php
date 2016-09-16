@@ -41,6 +41,8 @@ if ($_POST['users'] == 'rechten') //Rechten aanpassen
 {
 $waarde = $_POST['id'];
 $data = $_POST['rechten'];
+	if ($waarde > 1)
+	{
 	try{
 $stmt = $stmt = $db->prepare("UPDATE gebruikers SET rechten =:data WHERE id =:waarde ");
 $stmt->execute(
@@ -69,6 +71,12 @@ switch ($data) {
 		$data = "gebruiker";
 	}
 $_SESSION[ERROR] = "Rechten zijn aangepast naar $data" ;
+}
+else
+{
+$_SESSION[ERROR] = "de rechten van id $waarde kan niet worden veranderd";
+}
+
 echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://{$_SERVER['SERVER_NAME']}/a/gebruikers\" />";
 }
  
@@ -105,12 +113,18 @@ Ruimte tussen verschillende post invoer functies
 
 if ($_POST['users'] == 'toevoegen') //Gebruiker toevoegen
 {
+$hash = NEW PasswordStorage;
+$data = $_POST['wachtwoord'];
+$hashpass = $hash->create_hash($data);
 $naam = $_POST['naam'];
 	try{
-$stmt = $stmt = $db->prepare("INSERT INTO gebruikers (naam) VALUES (:naam)");
+$stmt = $db->prepare("ALTER TABLE gebruikers AUTO_INCREMENT =2");
+$stmt->execute();		
+$stmt = $db->prepare("INSERT INTO gebruikers (naam,wachtwoord) VALUES (:naam,:data)");
 $stmt->execute(
 array(
 ':naam' => $naam, 
+':data' => $hashpass,
  ));
 	}
 catch(Exception $e) {
@@ -118,7 +132,7 @@ catch(Exception $e) {
     var_dump($e->getMessage());
 	die ('</h2></font> ');
 }
-$_SESSION[ERROR] = "Gebruiker Toegevoegd" ;
+$_SESSION[ERROR] = "Gebruiker Toegevoegd met wachtwoord: <font color='red'>$data</font>" ;
 echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://{$_SERVER['SERVER_NAME']}/a/gebruikers\" />";
 }
 
@@ -133,7 +147,7 @@ $waarde = $_POST['id'];
 $data = $_POST['wachtwoord'];
 $hashpass = $hash->create_hash($data);
 	try{
-$stmt = $stmt = $db->prepare("UPDATE gebruikers SET password =:data WHERE id =:waarde ");
+$stmt = $stmt = $db->prepare("UPDATE gebruikers SET wachtwoord =:data WHERE id =:waarde ");
 $stmt->execute(
 array(
 ':waarde' => $waarde, 
