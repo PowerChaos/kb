@@ -94,7 +94,7 @@ echo "<td class=warning >$info[sn]</td>";
 echo "<td class=success><a href='../post/$info[pid]'>$info[pn]</a></td>";
 $in = $info[pi];
 $out = strlen($in) > 50 ? substr($in,0,50)."..." : $in;
-echo "<td class=info >$out</td>";
+echo "<td class=info >$in</td>";
 echo "</tr>";
 }
 echo "</tbody></table>";
