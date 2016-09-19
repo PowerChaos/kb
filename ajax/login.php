@@ -37,7 +37,7 @@ catch(Exception $e) {
 	die ('</h2></font> ');
 	}
 	
-	if (($result2 != 0) AND ($passhash['rechten'] !='b'))
+	if ($result2 != 0)
             {
 				try{
 			$stmt = $db->prepare('SELECT * FROM gebruikers WHERE naam =:username LIMIT 1');
@@ -61,24 +61,26 @@ catch(Exception $e) {
 	{
 		$_SESSION['admin'] = "1";
 		$check = "Welkom Admin $_SESSION[naam]";
+		echo "1";
 	}
 	elseif ($result2['rechten'] == '2')
 	{
 		$_SESSION['staff'] = "1";
 		$check = "Welkom Staff $_SESSION[naam]";
+		echo "1";
 	}
+	elseif ($passhash['rechten'] =='b')
+		{
+					echo "0";
+		}
 	else
 	{
 		$check = "Welkom Gebruiker $_SESSION[naam]";
+		echo "1";
 	}
 		
 	$_SESSION[ERROR] = "$check";
-	echo "1";
 	}
-		elseif ($passhash['rechten'] =='b')
-        {
-            echo "0";
-		}
 		 else 
         {
             echo "Niets Gevonden met $username en $pass";

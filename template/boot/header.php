@@ -11,15 +11,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
      <title>Knowledge Base</title>
 
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- JQuery -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	<script src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/jquery.ui.shake.js"></script>
-<!-- bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-
 <!-- moment -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
 <!-- Datatables -->
@@ -50,62 +48,7 @@
 <body>
 	<script type="text/javascript">
 $(document).ready(function() {
- $('#hc').DataTable( {
-        scrollY:        '35vh',
-        scrollCollapse: true,
-        paging:         false,
-		dom: 'LBfrtip',
-		buttons: true,
-		aaSorting: [],
-		columnDefs: [ {
-        targets: 3,
-		render: $.fn.dataTable.render.ellipsis(150,1,0)
-    } ]
-		
-    } ); 
-$.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
-    var esc = function ( t ) {
-        return t
-            .replace( /&/g, '&amp;' )
-            .replace( /</g, '&lt;' )
-            .replace( />/g, '&gt;' )
-            .replace( /"/g, '&quot;' );
-    };
- 
-    return function ( d, type, row ) {
-        // Order, search and type get the original data
-        if ( type !== 'display' ) {
-            return d;
-        }
- 
-        if ( typeof d !== 'number' && typeof d !== 'string' ) {
-            return d;
-        }
- 
-        d = d.toString(); // cast numbers
- 
-        if ( d.length < cutoff ) {
-            return d;
-        }
- 
-        var shortened = d.substr(0, cutoff-1);
- 
-        // Find the last white space character in the string
-        if ( wordbreak ) {
-            shortened = shortened.replace(/\s([^\s]*)$/, '');
-        }
- 
-        // Protect against uncontrolled HTML input
-        if ( escapeHtml ) {
-            shortened = esc( shortened );
-        }
- 
-        return '<span class="ellipsis" title="'+esc(d)+'">'+shortened+'&#8230;</span>';
-    };
-};
-
 //Initialization of treeviews
-
 $('#tree1').treed();
 	} );
 	
