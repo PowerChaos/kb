@@ -15,23 +15,38 @@ $_SESSION[ERROR] ="";
 						</pre>
 					</div>
 				</div>
+				
 				<div class="row">
-					<form class="span12" id="postForm" action="" method="POST" enctype="multipart/form-data">
-						<div class="control-group">
-							<select id="hc" class="demo-default" placeholder="Type your name..." name='hc'>
-								<option value="">Type your name ...</option>
+				<form class="form-horizontal" id="postForm" action="" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="hc">Hoofd Category</label>
+    <div class="col-sm-10">
+      <select id="hc" class="demo-default" placeholder="HoofdCategory" name='hc'>
+								<option value="">HoofdCategory</option>
 							</select>
-						</div>
-						<fieldset>
-							<legend>Make Post</legend>
-							<p class="container">
-								<textarea class="input-block-level" id="summernote" name="content" rows="18">
-								</textarea>
-							</p>
-						</fieldset>
-						<button type="submit" class="btn btn-primary">Save changes</button>
-						<button type="button" id="cancel" class="btn">Cancel</button>
-					</form>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="shc">Sub Category:</label>
+    <div class="col-sm-10"> 
+      <select id="shc" class="demo-default" placeholder="SubCategory" name='shc'>
+								<option value="">SubCategory</option>
+							</select>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-12">
+	<textarea class="input-block-level" id="summernote" name="content" rows="18">
+	</textarea>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+
 				</div>
 			</div>
 
