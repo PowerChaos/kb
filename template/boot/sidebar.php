@@ -2,7 +2,7 @@
 if (u())
 {
 ?>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -68,7 +68,10 @@ if (u())
   </div>
 </nav>
  	<!-- Dynamic SiteBar -->
-<div class="navbar-fixed-left">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-3 col-lg-2">
+<nav class="navbar navbar-default navbar-fixed-side">
 <ul id="tree1">
 <?php
 require(getenv("DOCUMENT_ROOT")."/functions/database.php");
@@ -127,13 +130,12 @@ echo "</ul>";
 echo "</li>";
 }
 ?>
-</ul>			
+</ul>
+</nav>			
 </div>
 <!-- Dynamic SiteBar --> 	
 <?php
 }
 ?>
         <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-			<div class="container content">
+<div class="col-sm-9 col-lg-10">

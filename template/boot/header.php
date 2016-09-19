@@ -58,4 +58,3 @@ $('#tree1').treed();
 	} );
 	
 </script>
-    <div id="wrapper" class='toggled'>

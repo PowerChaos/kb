@@ -1,11 +1,9 @@
 </div><!--container -->
-</div>
- </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
+</div><!-- /#page-content-wrapper -->
+ </div><!-- /#wrapper -->
+    
+		
+    
 <!-- Modal -->
  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg" role="document">
