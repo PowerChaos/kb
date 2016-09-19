@@ -11,6 +11,13 @@ gebruiker : admin
 
 wachtwoord : 123456
 
+#Momenteel werkend
++login
++header/sidebar
++gebruikers
++dynamic sidebar
++rechten
++zoekfunctie op home.php ( datatables )
 
 #RoadMap
 + volledig prive
@@ -56,7 +63,7 @@ Aleen waneer ingelogt
 | id | hc | naam |
 |----|----|------|
 | 3	 | 2  | Sub	 |
-##post
+##posts
 | id | shc | naam | 	info   | cu | cts | eu | ets |
 |----|-----|------|------------|----|-----|----|-----|
 | 4	 |	3  | post | hello world| 1  |12345| 15 |12356|
