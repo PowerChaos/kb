@@ -10,46 +10,51 @@
     <meta name="author" content="PowerChaos">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
      <title>Knowledge Base</title>
+	
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/jquery.ui.shake.js"></script>
 
 	<!-- bootstrap -->
+	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<script src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/jquery.ui.shake.js"></script>
-<!-- moment -->
+	
+	<!-- moment -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
-<!-- Datatables -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/bs-3.3.6/jq-2.2.0,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,af-2.1.1,b-1.1.2,b-colvis-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,cr-1.3.1,fc-3.2.1,fh-3.1.1,kt-2.1.1,r-2.0.2,rr-1.1.1,sc-1.4.1,se-1.1.2/datatables.min.css"/>
-<script type="text/javascript" src="https://cdn.datatables.net/t/bs-3.3.6/jq-2.2.0,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,af-2.1.1,b-1.1.2,b-colvis-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,cr-1.3.1,fc-3.2.1,fh-3.1.1,kt-2.1.1,r-2.0.2,rr-1.1.1,sc-1.4.1,se-1.1.2/datatables.min.js"></script>
-<script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/dataRender/ellipsis.js"></script>
 
-<!-- Tree -->
-<link href="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/css/tree.css" rel="stylesheet" />
-<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/tree.js"></script>
-<!-- Fonts -->
+	<!-- Datatables -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/bs-3.3.6/jq-2.2.0,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,af-2.1.1,b-1.1.2,b-colvis-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,cr-1.3.1,fc-3.2.1,fh-3.1.1,kt-2.1.1,r-2.0.2,rr-1.1.1,sc-1.4.1,se-1.1.2/datatables.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/t/bs-3.3.6/jq-2.2.0,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,af-2.1.1,b-1.1.2,b-colvis-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,cr-1.3.1,fc-3.2.1,fh-3.1.1,kt-2.1.1,r-2.0.2,rr-1.1.1,sc-1.4.1,se-1.1.2/datatables.min.js"></script>
+	<script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/dataRender/ellipsis.js"></script>
+
+	<!-- Tree -->
+	<link href="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/css/tree.css" rel="stylesheet" />
+	<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/tree.js"></script>
+	
+	<!-- Fonts -->
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/foundation-icon-fonts/foundation-icons.css">
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/icomoon/dist/css/style.css">
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/ionicons/css/ionicons.css">
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/material-design-icons/iconfont/material-icons.css">
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/octicons/octicons/octicons.css">
-<!-- end Fonts -->
+	<!-- end Fonts -->
 
-<!-- required plugins -->
-<!--[if IE]><script type="text/javascript" src="scripts/jquery.bgiframe.js"></script><![endif]-->
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
 <body>
 	<script type="text/javascript">
 $(document).ready(function() {
 //Initialization of treeviews
 $('#tree1').treed();
+//header DropDown Fix
+	$('.dropdown-toggle').click(function(){
+		var parent = $(this).parent();
+		if(parent.hasClass('open')) { 
+			parent.removeClass('open'); 
+		} else {
+			parent.addClass('open');
+		}
+	});
 	} );
 	
 </script>
