@@ -75,7 +75,7 @@ $result = $stmt->fetchall(PDO::FETCH_ASSOC);
 <div class="alert alert-info">
  OverZicht Categories
 </div>
-<table border=1 id='groep' class="table table-striped table-bordered table-hover">
+<table border=1 id='hc' class="table table-striped table-bordered table-hover">
   <thead>
   <tr>	
 	<td>HoofdGroep</td>
