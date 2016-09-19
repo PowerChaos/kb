@@ -32,6 +32,10 @@
 	<link href="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/css/tree.css" rel="stylesheet" />
 	<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/tree.js"></script>
 	
+	<!-- SummerNote -->
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+	
 	<!-- Fonts -->
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/foundation-icon-fonts/foundation-icons.css">
@@ -41,20 +45,7 @@
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/octicons/octicons/octicons.css">
 	<!-- end Fonts -->
 
-<body>
-	<script type="text/javascript">
-$(document).ready(function() {
-//Initialization of treeviews
-$('#tree1').treed();
-//header DropDown Fix
-	$('.dropdown-toggle').click(function(){
-		var parent = $(this).parent();
-		if(parent.hasClass('open')) { 
-			parent.removeClass('open'); 
-		} else {
-			parent.addClass('open');
-		}
-	});
-	} );
+	<!-- custom JS -->
+	<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/custom.js"></script>
 	
-</script>
+<body>
