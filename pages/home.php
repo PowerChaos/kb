@@ -75,7 +75,7 @@ $result = $stmt->fetchall(PDO::FETCH_ASSOC);
 ?>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#hc').DataTable( {
+			$('#hoofd').DataTable( {
 				scrollY:        '35vh',
 				scrollCollapse: true,
 				paging:         false,
@@ -134,9 +134,9 @@ $result = $stmt->fetchall(PDO::FETCH_ASSOC);
 	</script>
 
 <div class="alert alert-info">
- OverZicht Categories
+ Volledig OverZicht
 </div>
-<table border=1 id='hc' class="table table-striped table-bordered table-hover">
+<table border=1 id='hoofd' class="table table-striped table-bordered table-hover">
   <thead>
   <tr>	
 	<td>HoofdGroep</td>
