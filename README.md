@@ -12,20 +12,20 @@ gebruiker : admin
 wachtwoord : 123456
 
 #Momenteel werkend
-+login
-+header/sidebar
-+gebruikers
-+dynamic sidebar
-+rechten
-+zoekfunctie op home.php ( datatables )
++ login
++ header/sidebar
++ gebruikers
++ dynamic sidebar
++ rechten
++ zoekfunctie op home.php ( datatables )
 
 #RoadMap
-+ volledig prive
-+ Sidebar voor weergave folders
-+ simpel admin
-+ Zoekfunctie in header
-+ login/logout
-+ admin menu in header
+ + volledig prive
+ + Sidebar voor weergave folders
+ + simpel admin
+ + Zoekfunctie in header
+ + login/logout
+ + admin menu in header
 
 + 4 rechten , admin (3) staff (2) gebruiker en Verbannen (b)
 + WYSIWIG editor
