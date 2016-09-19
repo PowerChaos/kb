@@ -66,6 +66,7 @@ if (u())
       </ul>
     </div>
   </div>
+</nav>
  	<!-- Dynamic SiteBar -->
 <div class="navbar-fixed-left">
 <ul id="tree1">
@@ -128,9 +129,7 @@ echo "</li>";
 ?>
 </ul>			
 </div>
-	<!-- Dynamic SiteBar --> 
-</nav>
-	
+<!-- Dynamic SiteBar --> 	
 <?php
 }
 ?>

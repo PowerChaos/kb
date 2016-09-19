@@ -51,11 +51,3 @@ $.fn.extend({
         });
     }
 });
-
-//Initialization of treeviews
-
-$(document).ready(function(){
-
-$('#tree1').treed();
-
-});

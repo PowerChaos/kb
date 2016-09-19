@@ -1,11 +1,10 @@
 <?
 if (!u()){
 ?>
+
+<link rel="stylesheet" href="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/css/login.css">
 <!-- Login -->
 <script src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/login.js"></script>
-<!-- Validate -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-<link rel="stylesheet" href="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/css/login.css">
 <!-- login -->
 	<div class="signin-form">
 
@@ -74,7 +73,7 @@ $stmt->execute();
 $result = $stmt->fetchall(PDO::FETCH_ASSOC);
 ?>
 <div class="alert alert-info">
- OverZicht HoofdCategories
+ OverZicht Categories
 </div>
 <table border=1 id='groep' class="table table-striped table-bordered table-hover">
   <thead>
