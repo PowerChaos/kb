@@ -36,6 +36,14 @@
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 	
+		<!-- SelectSize -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.3/js/standalone/selectize.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.3/css/selectize.bootstrap3.css" />
+	
+	<!-- highlights -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/tomorrow-night-blue.min.css" />
+	
 	<!-- Fonts -->
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="//glyphsearch.com/bower_components/foundation-icon-fonts/foundation-icons.css">

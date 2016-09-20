@@ -53,7 +53,11 @@ $('#shc').selectize({
 			
         });	
 
-
+//syntax HighLighter
+  $('pre').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+		
 //Initialization of treeviews
 $('#tree1').treed();
 
