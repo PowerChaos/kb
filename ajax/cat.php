@@ -31,7 +31,7 @@ if ($_POST['shc'])
 		$naam = $_POST['id'];
 		require(getenv("DOCUMENT_ROOT")."/functions/database.php");
 		try{	
-			$stmt = $db->prepare("SELECT * FROM shc Where hc LIKE :naam");
+			$stmt = $db->prepare("SELECT * FROM shc Where hc = :naam");
 			$stmt->execute(array(':naam' => $naam.'%',));
 			$result = $stmt->fetchall(PDO::FETCH_ASSOC);
 		}//end try

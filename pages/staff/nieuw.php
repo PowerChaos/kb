@@ -22,7 +22,7 @@ $_SESSION[ERROR] ="";
   <div class="form-group">
     <label class="control-label col-sm-2" for="hc">Hoofd Category</label>
     <div class="col-sm-10">
-      <select id="hc" class="demo-default" placeholder="HoofdCategory" name='hc'>
+      <select id="hc"  placeholder="HoofdCategory" name='hc'>
 								<option value="">HoofdCategory</option>
 							</select>
     </div>
@@ -30,7 +30,7 @@ $_SESSION[ERROR] ="";
   <div class="form-group">
     <label class="control-label col-sm-2" for="shc">Sub Category:</label>
     <div class="col-sm-10"> 
-      <select id="shc" class="demo-default" placeholder="SubCategory" name='shc'>
+      <select id="shc"  placeholder="SubCategory" name='shc'>
 								<option value="">SubCategory</option>
 							</select>
     </div>

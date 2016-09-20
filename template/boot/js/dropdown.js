@@ -8,7 +8,8 @@ $select_hc = $('#hc').selectize({
 	valueField: 'id',
     labelField: 'name',
     searchField: 'name',
-    options: [],
+    plugins: ['restore_on_backspace'],
+	options: [],
     create: true,
     load: function(query, callback) {
         if (!query.length) return callback();
@@ -62,6 +63,7 @@ $select_shc = $('#shc').selectize({
     labelField: 'name',
     searchField: 'name',
 	options: [],
+	plugins: ['restore_on_backspace'],
     create: true,
 });
 
