@@ -71,7 +71,8 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `cts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time Stamp van post',
   `eu` int(11) DEFAULT NULL COMMENT 'Bewerkt bij',
   `ets` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'TimeStamp Bewerkt',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Post Tabel' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -85,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `shc` (
   `hc` tinyint(4) NOT NULL COMMENT 'HoofdCategory',
   `naam` varchar(64) CHARACTER SET latin1 NOT NULL COMMENT 'Naam SubCategory',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `naam` (`naam`)
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SubCategory' AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

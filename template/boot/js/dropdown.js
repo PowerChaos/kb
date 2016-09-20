@@ -71,4 +71,25 @@ select_shc  = $select_shc[0].selectize;
 select_hc = $select_hc[0].selectize;
 
 select_shc.disable();
+
+
+$("#submit").attr('disabled', 'disabled');
+$("#submit").attr('class', 'btn btn-danger btn-block');
+$("form").keyup(function() {
+// To Disable Submit Button
+$("#submit").attr('disabled', 'disabled');
+$("#submit").attr('class', 'btn btn-danger btn-block');
+// Validating Fields
+var name = $("#naam").val();
+var hc = $("#hc").val();
+var shc = $("#shc").val();
+var info = $("#info").val();
+if (!(name == "" || hc == "" || shc == "" || info == "")) {
+// To Enable Submit Button
+$("#submit").removeAttr('disabled');
+$("#submit").removeAttr('class');
+$("#submit").attr('class', 'btn btn-success btn-block');
+}
+});
+
 });

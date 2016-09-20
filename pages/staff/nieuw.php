@@ -18,11 +18,18 @@ $_SESSION[ERROR] ="";
 				</div>
 				
 				<div class="row">
-				<form class="form-horizontal" id="postForm" action="" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" id="postForm" action="../invoer" method="POST" enctype="multipart/form-data">
+				<input type="hidden" name="nieuw" value="nieuw">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="info">Titel van post</label>
+				<div class="col-sm-10">
+				<input type="text" name="naam" value="" placeholder='Titel van Post' class="form-control" id="naam">
+				</div>
+			</div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="hc">Hoofd Category</label>
     <div class="col-sm-10">
-      <select id="hc"  placeholder="HoofdCategory" name='hc'>
+      <select id="hc"  placeholder="Hoofd Category" name='hc'>
 								<option value="">HoofdCategory</option>
 							</select>
     </div>
@@ -30,20 +37,20 @@ $_SESSION[ERROR] ="";
   <div class="form-group">
     <label class="control-label col-sm-2" for="shc">Sub Category:</label>
     <div class="col-sm-10"> 
-      <select id="shc"  placeholder="SubCategory" name='shc'>
+      <select id="shc"  placeholder="Sub Category" name='shc'>
 								<option value="">SubCategory</option>
 							</select>
     </div>
   </div>
   <div class="form-group"> 
     <div class="col-sm-12">
-	<textarea class="input-block-level" id="summernote" name="content" rows="18">
+	<textarea class="input-block-level" id="summernote" name="info" rows="18">
 	</textarea>
     </div>
   </div>
   <div class="form-group"> 
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Submit</button>
+    <div class="col-sm-12">
+      <button type="submit" id="submit" value="Submit" class="btn btn-default">Submit</button>
     </div>
   </div>
 </form>

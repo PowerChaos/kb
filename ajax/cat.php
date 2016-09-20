@@ -32,7 +32,7 @@ if ($_POST['shc'])
 		require(getenv("DOCUMENT_ROOT")."/functions/database.php");
 		try{	
 			$stmt = $db->prepare("SELECT * FROM shc Where hc = :naam");
-			$stmt->execute(array(':naam' => $naam.'%',));
+			$stmt->execute(array(':naam' => $naam));
 			$result = $stmt->fetchall(PDO::FETCH_ASSOC);
 		}//end try
 		catch(Exception $e) {
