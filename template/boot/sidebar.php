@@ -2,7 +2,7 @@
 if (u())
 {
 ?>
-<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -14,9 +14,9 @@ if (u())
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
 		<div class="col-sm-3 col-md-3">
-			<form class="navbar-form" role="search">
+			<form class="navbar-form" role="search" action="../search" method="POST">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search" name="q">
+					<input type="text" class="form-control" placeholder="Search" name="search">
 					<div class="input-group-btn">
 						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 					</div>

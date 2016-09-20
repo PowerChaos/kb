@@ -81,10 +81,11 @@ $("#submit").attr('disabled', 'disabled');
 $("#submit").attr('class', 'btn btn-danger btn-block');
 // Validating Fields
 var name = $("#naam").val();
-var hc = $("#hc").val();
-var shc = $("#shc").val();
+var hc = $("#hc option:selected").text();
+var shc = $("#shc option:selected").text();
 var info = $("#info").val();
-if (!(name == "" || hc == "" || shc == "" || info == "")) {
+if (!(name == "" || hc == "" || shc == "" || info == "" || hc.match(/^\d+$/) || shc.match(/^\d+$/) )){
+	
 // To Enable Submit Button
 $("#submit").removeAttr('disabled');
 $("#submit").removeAttr('class');

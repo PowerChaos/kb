@@ -196,8 +196,14 @@ if (!empty($count))
 }
 else
 {
-$hc = preg_replace("/[^A-Za-z ]/", null, $hc);
+$hc = preg_replace("/[^A-Za-z0-9 ]/", null, $hc);
+while (is_numeric(substr($hc, 0, 1)))
+{
+		$hc = substr($hc, 1);	
+}
 $hc = ucfirst(strtolower($hc));
+
+
 $stmt = $db->prepare("select id from hc WHERE naam =:hc ");
 $stmt->execute(
 array(
@@ -241,8 +247,13 @@ $hc = $db->lastInsertId();
 		}
 		else
 		{
-			$shc = preg_replace("/[^A-Za-z ]/", null, $shc);
+			$shc = preg_replace("/[^A-Za-z0-9 ]/", null, $shc);
+			while (is_numeric(substr($shc, 0, 1)))
+			{
+				$shc = substr($shc, 1);	
+			}
 			$shc = ucfirst(strtolower($shc));
+
 			$stmt = $db->prepare("select id from shc WHERE naam =:shc AND hc = :hc ");
 			$stmt->execute(
 			array(
