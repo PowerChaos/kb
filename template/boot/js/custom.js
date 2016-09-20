@@ -1,5 +1,6 @@
 $(document).ready(function() {
 //selectize
+
        $('#hc').selectize({
     valueField: 'name',
     labelField: 'name',

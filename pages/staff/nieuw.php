@@ -3,6 +3,7 @@ if (s()){
 echo "<h1>".$_SESSION[ERROR]."</h1>";
 $_SESSION[ERROR] ="";
 ?>
+<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/dropdown.js"></script>
 			<div class="summernote container">
 				<div class="row">
 					<div class="span12">

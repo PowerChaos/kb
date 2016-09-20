@@ -19,7 +19,7 @@ catch(Exception $e) {
 $rows = array();
 foreach($result as $info)
 {
-    $rows[] = "{ \"name\": \"$info[naam]\" }";
+    $rows[] = "{ \"name\": \"$info[naam]\",\"id\": \"$info[id]\" }";
 }
 
 // output to the browser
@@ -28,10 +28,10 @@ echo "[\n" .join(",\n", $rows) ."\n]";
 if ($_POST['shc'])
 {
 		// parameters from URL
-		$naam = $_POST['name'];
+		$naam = $_POST['id'];
 		require(getenv("DOCUMENT_ROOT")."/functions/database.php");
 		try{	
-			$stmt = $db->prepare("SELECT * FROM shc Where naam LIKE :naam");
+			$stmt = $db->prepare("SELECT * FROM shc Where hc LIKE :naam");
 			$stmt->execute(array(':naam' => $naam.'%',));
 			$result = $stmt->fetchall(PDO::FETCH_ASSOC);
 		}//end try
@@ -43,7 +43,7 @@ if ($_POST['shc'])
 		$rows = array();
 		foreach($result as $info)
 		{
-			$rows[] = "{ \"name\": \"$info[naam]\" }";
+			$rows[] = "{ \"name\": \"$info[naam]\",\"id\": \"$info[id]\" }";
 		}
 		
 		// output to the browser
