@@ -19,6 +19,8 @@
  </div>
 <!-- end modal -->
     <!-- Menu Toggle Script -->
-</body>
+<!-- Footer JS -->
+<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/footer.js"></script>
+	</body>
 
 </html>

@@ -1,3 +1,8 @@
+/* hide page until load is complete */
+		.pace-running > *:not(.pace) {
+		opacity:0;
+		}
+/* Tree Vieuw CSS */		
 .tree, .tree ul {
     margin:0;
     padding:0;
@@ -61,9 +66,18 @@
     padding:0px 0px 0px 0px;
     outline: 0;
 }
+/*Right Side NavBar in Post */
 .right-fix {
-    right: 0;     
+    right: 0;
+	position:fixed;
+	/* height:75vh; */
+	width:auto;
 }
+.right-fix ul
+	{
+		list-style-type: none;
+	}
+/*Left NavBar */
 @media (max-width: 768px){
 		.navbar-fixed-side{
 				margin-left:-15px;
