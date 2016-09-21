@@ -1,5 +1,4 @@
 $(document).ready(function() {
-//selectize
 
 //syntax HighLighter
   $('pre').each(function(i, block) {
