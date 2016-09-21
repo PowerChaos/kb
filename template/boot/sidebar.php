@@ -14,7 +14,7 @@ if (u())
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
 		<div class="col-sm-3 col-md-3">
-			<form class="navbar-form" role="search" action="../search" method="POST">
+			<form class="navbar-form" role="search" action="../home" method="POST" name="searchbar">
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Search" name="search">
 					<div class="input-group-btn">
