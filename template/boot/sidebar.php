@@ -76,7 +76,7 @@ if (u())
 <?php
 require(getenv("DOCUMENT_ROOT")."/functions/database.php");
 	try{	
-$stmt = $db->prepare("SELECT * FROM hc");
+$stmt = $db->prepare("SELECT * FROM hc ORDER BY naam ASC");
 $stmt->execute();
 $result = $stmt->fetchall(PDO::FETCH_ASSOC);
 
@@ -92,7 +92,7 @@ echo "<ul>";
 
 	try{
 $hc = $info[id];		
-$stmthc = $db->prepare("SELECT * FROM shc where hc =:hc");
+$stmthc = $db->prepare("SELECT * FROM shc where hc =:hc ORDER BY naam ASC");
 $stmthc->execute(array(':hc' => $hc));
 $resultsub = $stmthc->fetchall(PDO::FETCH_ASSOC);
 
@@ -109,7 +109,7 @@ echo "<ul>";
 
 	try{
 $subhc = $sub[id];		
-$stmtsubhc = $db->prepare("SELECT * FROM posts where shc =:subhc");
+$stmtsubhc = $db->prepare("SELECT * FROM posts where shc =:subhc ORDER BY naam ASC");
 $stmtsubhc->execute(array(':subhc' => $subhc));
 $resultpost = $stmtsubhc->fetchall(PDO::FETCH_ASSOC);
 

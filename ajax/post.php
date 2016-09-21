@@ -12,7 +12,7 @@ if ($_POST['bewerk'] == "delete")
     var_dump($e->getMessage());
 	die ('</h2></font> ');
 }	
-$_SESSION[ERROR] = "Post $id successvol verwijderd";		
+$_SESSION[ERROR] = "Post ID $id successvol verwijderd";		
 }
 ?>
 <script>
@@ -51,9 +51,9 @@ if ($_POST['groep'] == "verplaats")
 	// parameters from URL
 	try{	
 		$stmt = $db->prepare("SELECT
-		shc.id,
+		shc.id AS shcid,
 		shc.hc,
-		shc.naam,
+		shc.naam AS shcn,
 		hc.id,
 		hc.naam AS hcn
 		FROM
@@ -61,6 +61,8 @@ if ($_POST['groep'] == "verplaats")
 		shc
 		WHERE
 		shc.hc = hc.id
+		ORDER BY
+		hcn ASC
 		");
 		$stmt->execute();
 		$result = $stmt->fetchall(PDO::FETCH_ASSOC);
@@ -73,7 +75,7 @@ if ($_POST['groep'] == "verplaats")
 	$rows = array();
 	foreach($result as $info)
 	{
-		$rows[] = "{ \"name\": \"$info[hcn] - $info[naam]\",\"id\": \"$info[id]\" }";
+		$rows[] = "{ \"name\": \"$info[hcn] - $info[shcn]\",\"id\": \"$info[shcid]\" }";
 	}
 	
 	// output to the browser

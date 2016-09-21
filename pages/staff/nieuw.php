@@ -2,22 +2,14 @@
 if (s()){
 echo "<h1>".$_SESSION[ERROR]."</h1>";
 $_SESSION[ERROR] ="";
-?>
+	?>
 <script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/s/nieuw.php.js"></script>
+<div class="alert alert-success text-center">
+	<strong>Nieuwe Post</strong>
+</div>
+
 			<div class="summernote container">
-				<div class="row">
-					<div class="span12">
-						<h2>POST DATA</h2>
-						<pre>
-							<?php print_r($_POST); ?>
-						</pre>
-						<pre>
-							<?php echo htmlspecialchars($_POST['content']); ?>
-						</pre>
-					</div>
-				</div>
-				
-				<div class="row">
+					<div class="row">
 				<form class="form-horizontal" id="postForm" action="../invoer" method="POST" enctype="multipart/form-data">
 				<input type="hidden" name="nieuw" value="nieuw">
 			<div class="form-group">

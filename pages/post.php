@@ -8,7 +8,7 @@ if ($_GET['post'])
 	$post = $_GET['post'];
 	require(getenv("DOCUMENT_ROOT")."/functions/database.php");
 	try{	
-		$stmt = $db->prepare("SELECT * FROM posts Where id LIKE :naam");
+		$stmt = $db->prepare("SELECT * FROM posts Where id = :naam");
 		$stmt->execute(array(':naam' => $post,));
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 		$count = $stmt->rowCount();
@@ -38,7 +38,12 @@ if ($_GET['post'])
 			<?php if (s()){ //start Staff?>	
 			<li><a href='# 'class="btn btn-danger btn-sm" data-toggle='modal' data-target='#modal' id='<?php echo $post;?>' onclick='post(this.id,"verwijder");'><i class='material-icons' title='verwijder' aria-hidden='true'>cancel</i><span class='sr-only'>verwijder</span></a></li>
 			<li><a href='# 'class="btn btn-info btn-sm" data-toggle='modal' data-target='#modal' id='<?php echo $post;?>' onclick='post(this.id,"verplaats");'><i class='material-icons' title='verplaats' aria-hidden='true'>content_cut</i><span class='sr-only'>verplaats</span></a></li>
-			<?php } //end staff ?>
+			
+			<form action="../s/bewerk" method="POST" name="bewerk">
+			<input type="hidden" name="post" value="bewerk">
+			<input type="hidden" name="id" value="<?php echo $post ?>">
+			<li><a href='#'class="btn btn-warning btn-sm" onClick="document.bewerk.submit();"><i class='material-icons' title='bewerk' aria-hidden='true'>create</i><span class='sr-only'>bewerk</span></a></li></form>
+	<?php } //end staff ?>
 				</ul>
 </div>
 <div id="post">			

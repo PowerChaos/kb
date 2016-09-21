@@ -9,16 +9,18 @@ $select_hc = $('#hc').selectize({
     labelField: 'name',
     searchField: 'name',
     plugins: ['restore_on_backspace'],
-	options: [],
     create: true,
+	createOnBlur: true,
+	openOnFocus: true,
+	preload: true,
     load: function(query, callback) {
-        if (!query.length) return callback();
+    this.settings.load = null;
         $.ajax({
             url: '../ajax/cat.php',
             type: 'POST',
 		   dataType: 'json',
             data: {
-                name: query,
+                name: "load",
 				hc: "1",
             },
             error: function() {
@@ -28,8 +30,13 @@ $select_hc = $('#hc').selectize({
                 callback(res);
             }
         });
-    },
-			
+		(function(response){
+            callback(response);
+        },
+		function(){
+         callback();
+        });
+    },	
     onChange: function(value) {
         if (!value.length) return;
         select_shc.disable();
@@ -62,17 +69,17 @@ $select_shc = $('#shc').selectize({
     valueField: 'id',
     labelField: 'name',
     searchField: 'name',
-	options: [],
 	plugins: ['restore_on_backspace'],
     create: true,
+	createOnBlur: true,
+	openOnFocus: true,
 });
 
 select_shc  = $select_shc[0].selectize;
 select_hc = $select_hc[0].selectize;
-
 select_shc.disable();
 
-
+//disable Submit Button
 $("#submit").attr('disabled', 'disabled');
 $("#submit").attr('class', 'btn btn-danger btn-block');
 $("form").keyup(function() {
@@ -83,7 +90,7 @@ $("#submit").attr('class', 'btn btn-danger btn-block');
 var name = $("#naam").val();
 var hc = $("#hc option:selected").text();
 var shc = $("#shc option:selected").text();
-var info = $("#info").val();
+var info = $("#summernote").val();
 if (!(name == "" || hc == "" || shc == "" || info == "" || hc.match(/^\d+$/) || shc.match(/^\d+$/) )){
 	
 // To Enable Submit Button

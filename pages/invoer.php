@@ -313,6 +313,44 @@ $hc = $db->lastInsertId();
 	Ruimte tussen verschillende post invoer functies
  */
 
+ //verwerking ajax/post.php
+if ($_POST['post'] == 'verplaats') //Rechten aanpassen
+{ 
+	$waarde = $_POST['id'];
+	$data = $_POST['shc'];
+	try{		
+		$stmt = $db->prepare("UPDATE posts SET shc =:data WHERE id =:waarde ");
+		$stmt->execute(
+		array(
+		':waarde' => $waarde, 
+		':data' => $data,
+		));
+		$stmt = $db->prepare("select * from shc WHERE id =:data");
+		$stmt->execute(
+		array(
+		':data' => $data,			
+		));
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);		
+		$shc = $result['naam'];
+		$data = $result['hc'];
+		$stmt = $db->prepare("select naam from hc WHERE id =:data");
+		$stmt->execute(
+		array(
+		':data' => $data,			
+		));
+		$result2 = $stmt->fetch(PDO::FETCH_ASSOC);		
+		$hc = $result2['naam'];
+	}
+	catch(Exception $e) {
+		echo '<h2><font color=red>';
+		var_dump($e->getMessage());
+		die ('</h2></font> ');
+	}		
+	
+	$_SESSION[ERROR] = "Post verplaatst naar <font color='red'>$hc - $shc</font>" ;
+	echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://{$_SERVER['SERVER_NAME']}/post/$waarde\" />";
+	
+}	
 //Geen Direct Acces
 if (empty($_POST)) // Geen direct acces :D
 {
