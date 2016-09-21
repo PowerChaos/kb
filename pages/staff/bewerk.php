@@ -20,8 +20,6 @@ if ($_POST['post'] == "bewerk")
 <script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/s/nieuw.php.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	var post = '<?php echo html_entity_decode($result['info']);?>'
-	$('#summernote').summernote('code', post);
 	var select_shc, $select_shc;
 	$select_shc = $('#shc').selectize({
 	});
@@ -68,6 +66,7 @@ $(document).ready(function() {
   <div class="form-group"> 
     <div class="col-sm-12">
 	<textarea class="input-block-level" id="summernote" name="info" rows="18">
+	<?php echo html_entity_decode($result['info']);?>
 	</textarea>
     </div>
   </div>
