@@ -33,8 +33,7 @@ if (u())
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
         <li><a href="../s/nieuw">Nieuwe Post</a></li>
-		<li><a href="../s/bewerk">Bewerk Post</a></li>
-		<li><a href="../s/lijst">zie all posten</a></li>		
+		<li><a href="../s/verwijder">Verwijder Categories</a></li>		
         </ul>
       </li>
 <?php		
@@ -71,6 +70,22 @@ if (u())
 <div class="container-fluid">
 <div class="row">
 <div class="col-sm-3 col-lg-2">
+<script type="text/javascript" class="init">
+		function verwijder(val, dat) {
+			$.ajax({
+				type: "POST",
+				url: "../ajax/remove.php",
+				data:'groep='+dat+'&waarde='+val,
+				success: function(data){
+					//alert(data);
+					//alert ("del: " +dat+ " en waarde: " +val);
+					$("#modal").modal('show');
+					$("#modalcode").html(data);
+					
+				}
+			});
+		}
+</script>
 <nav class="navbar navbar-default navbar-fixed-side">
 <ul id="tree1">
 <?php
@@ -88,6 +103,7 @@ $result = $stmt->fetchall(PDO::FETCH_ASSOC);
 }
 	foreach($result as $info) {
 echo "<li>$info[naam]";
+if (s()){ echo "  <a href='#' data-toggle='modal' data-target='#modal' id='$info[id]' onclick=\"verwijder(this.id,'verwijderhc');\"><span class='glyphicon glyphicon-remove'></span></a>";};
 echo "<ul>";
 
 	try{
@@ -105,6 +121,7 @@ $resultsub = $stmthc->fetchall(PDO::FETCH_ASSOC);
 
 foreach($resultsub as $sub) {
 echo "<li>$sub[naam]";
+if (s()){ echo "  <a href='#' data-toggle='modal' data-target='#modal' id='$sub[id]' onclick=\"verwijder(this.id,'verwijdershc');\"><span class='glyphicon glyphicon-remove'></span></a>";};
 echo "<ul>";
 
 	try{
