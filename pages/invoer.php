@@ -289,7 +289,7 @@ $hc = $db->lastInsertId();
 //post nieuw
 	
 	try{		
-			$stmt = $db->prepare("INSERT INTO posts (shc,naam,info,cu) VALUES (:shc,:naam,:info) ");
+			$stmt = $db->prepare("INSERT INTO posts (shc,naam,info,cu) VALUES (:shc,:naam,:info,:cu) ");
 			$stmt->execute(
 			array(
 			':shc' => $shc,
