@@ -1,5 +1,5 @@
 </div><!--container -->
-<div class="text-center"><br>&copy; PowerChaos 2016 - <?php echo date(Y)?></div>  
+<div class="text-center col-xs-12"><br>&copy; <a href="https://github.com/PowerChaos/kb">PowerChaos</a> 2016 - <?php echo date(Y)?></div>  
 </div><!-- /#page-content-wrapper -->
  </div><!-- /#wrapper -->  
 		

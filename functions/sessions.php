@@ -27,7 +27,7 @@ $_SESSION[ERROR] =  "Uw wachtwoord is gewijzigt, opnieuw inloggen is noodzakelij
 
 if ($_SESSION['loggedin'] == 1)
 {
-echo "<meta http-equiv='refresh' content='600;URL=http://{$_SERVER['SERVER_NAME']}/sessionexpired'>";	
+echo "<meta http-equiv='refresh' content='3600;URL=http://{$_SERVER['SERVER_NAME']}/sessionexpired'>";	
 }
 }
 /* CopyRight PowerChaos 2016 */
