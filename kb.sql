@@ -67,10 +67,10 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `shc` tinyint(4) NOT NULL COMMENT 'SubCategory',
   `naam` tinytext COLLATE utf8_bin NOT NULL COMMENT 'Post Titel',
   `info` longtext COLLATE utf8_bin NOT NULL COMMENT 'Post Text',
-  `cu` tinyint(4) NOT NULL COMMENT 'maker van post',
-  `cts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time Stamp van post',
-  `eu` int(11) DEFAULT NULL COMMENT 'Bewerkt bij',
-  `ets` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'TimeStamp Bewerkt',
+  `cu` tinytext COLLATE utf8_bin NOT NULL COMMENT 'maker van post',
+  `cts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'aanmaak post',
+  `eu` tinytext COLLATE utf8_bin NOT NULL COMMENT 'Bewerkt bij gebruiker',
+  `ets` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'TimeStamp Bewerkt',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Post Tabel' AUTO_INCREMENT=1 ;

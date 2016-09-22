@@ -1,7 +1,7 @@
 </div><!--container -->
+<div class="text-center col-xs-9"><br>&copy; PowerChaos 2016 - <?php echo date(Y)?></div>  
 </div><!-- /#page-content-wrapper -->
- </div><!-- /#wrapper -->
-    
+ </div><!-- /#wrapper -->  
 		
     
 <!-- Modal -->

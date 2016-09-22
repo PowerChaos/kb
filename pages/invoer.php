@@ -175,6 +175,8 @@ Ruimte tussen verschillende post invoer functies
 
 if ($_POST['nieuw'] == 'nieuw') //Rechten aanpassen
 {
+//hc nieuw
+
 	$hc = $_POST['hc'];
 	$shc = $_POST['shc'];
 	$info = htmlspecialchars($_POST['info']);
@@ -229,9 +231,9 @@ $hc = $db->lastInsertId();
 		var_dump($e->getMessage());
 		die ('</h2></font> ');
 	}
-//end hc edit
+//end hc nieuw
 
-//shc edit
+//shc nieuw
 	try{
 		$stmt = $db->prepare("select id from shc WHERE id =:shc ");
 		$stmt->execute(
@@ -282,17 +284,18 @@ $hc = $db->lastInsertId();
 		die ('</h2></font> ');
 	}	
 	
-//end shc edit
+//end shc nieuw
 
-//post edit
+//post nieuw
 	
 	try{		
-			$stmt = $db->prepare("INSERT INTO posts (shc,naam,info) VALUES (:shc,:naam,:info) ");
+			$stmt = $db->prepare("INSERT INTO posts (shc,naam,info,cu) VALUES (:shc,:naam,:info) ");
 			$stmt->execute(
 			array(
 			':shc' => $shc,
 			':naam' => $naam,
-			':info' => $info,			
+			':info' => $info,
+			':cu' => $_SESSION['naam'],
 			));
 			$post = $db->lastInsertId();	
 		}
@@ -317,11 +320,12 @@ if ($_POST['post'] == 'verplaats') //Rechten aanpassen
 	$waarde = $_POST['id'];
 	$data = $_POST['shc'];
 	try{		
-		$stmt = $db->prepare("UPDATE posts SET shc =:data WHERE id =:waarde ");
+		$stmt = $db->prepare("UPDATE posts SET shc =:data,eu=:cu WHERE id =:waarde ");
 		$stmt->execute(
 		array(
 		':waarde' => $waarde, 
 		':data' => $data,
+		':cu' => $_SESSION['naam'],
 		));
 		$stmt = $db->prepare("select * from shc WHERE id =:data");
 		$stmt->execute(
@@ -411,7 +415,7 @@ if ($_POST['post'] == 'bewerk') //Rechten aanpassen
 		}
 	}
 	catch(Exception $e) {
-		echo '<h2><font color=red> lijn 224 error <br>';
+		echo '<h2><font color=red> lijn 418 error <br>';
 		var_dump($e->getMessage());
 		die ('</h2></font> ');
 	}
@@ -473,13 +477,14 @@ if ($_POST['post'] == 'bewerk') //Rechten aanpassen
 	//post edit
 	
 	try{		
-		$stmt = $db->prepare("UPDATE posts SET shc=:shc,naam=:naam,info=:info WHERE id=:id ");
+		$stmt = $db->prepare("UPDATE posts SET shc=:shc,naam=:naam,info=:info,eu=:cu WHERE id=:id ");
 		$stmt->execute(
 		array(
 		':shc' => $shc,
 		':naam' => $naam,
 		':info' => $info,
-		':id' => $id,	
+		':id' => $id,
+		':cu' => $_SESSION['naam'],		
 		));
 		$post = $db->lastInsertId();	
 	}
