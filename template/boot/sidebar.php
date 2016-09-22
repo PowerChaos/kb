@@ -48,6 +48,8 @@ if (u())
         <span class="caret"></span></a>
         <ul class="dropdown-menu">					
 		<li><a href="../a/gebruikers">Gebruikers</a></li>
+		<li class="divider"></li>
+		<li><a href="../a/versie">Versie Controle</a></li>
         </ul>
       </li>
 <?php		
