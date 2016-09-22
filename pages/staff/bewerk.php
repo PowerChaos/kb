@@ -17,7 +17,7 @@ if ($_POST['post'] == "bewerk")
 		$stmt3->execute(array(':naam' => $result2[hc],));
 		$result3 = $stmt3->fetch(PDO::FETCH_ASSOC);
 	?>
-<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/s/nieuw.php.js"></script>
+<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/selectize.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	var select_shc, $select_shc;
@@ -28,17 +28,11 @@ $(document).ready(function() {
 });	
 </script>	
 <div class="alert alert-success text-center">
-	<strong>Bewerk Post debug: <?php echo $result2[hc] ." - ". $result['shc'] ?> </strong>
+	<strong>Bewerk Post <?php echo $result['naam'] ?> </strong>
 </div>
-	<div class="span12">
-		<h2>POST DATA</h2>
-		<pre>
-			<?php print_r($_POST); ?>
-		</pre>
-	</div>
 			<div class="summernote container">
 					<div class="row">
-				<form class="form-horizontal" id="postForm" action="" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" id="postForm" action="../invoer" method="POST" enctype="multipart/form-data">
 				<input type="hidden" name="post" value="bewerk">
 				<input type="hidden" name="id" value="<?php echo $post ?>">
 			<div class="form-group">

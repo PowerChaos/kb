@@ -3,7 +3,7 @@ if (s()){
 echo "<h1>".$_SESSION[ERROR]."</h1>";
 $_SESSION[ERROR] ="";
 	?>
-<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/s/nieuw.php.js"></script>
+<script type="text/javascript" src="//<?php echo $_SERVER['SERVER_NAME']?>/template/boot/js/selectize.js"></script>
 <div class="alert alert-success text-center">
 	<strong>Nieuwe Post</strong>
 </div>

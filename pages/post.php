@@ -46,7 +46,7 @@ if ($_GET['post'])
 	<?php } //end staff ?>
 				</ul>
 </div>
-<div id="post">			
+<div id="post" class='col-sm-11 col-lg-11'>			
 <div class="alert alert-info text-center">
 <strong><?php echo $titel ?></strong>
 </div>

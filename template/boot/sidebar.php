@@ -32,8 +32,7 @@ if (u())
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Post Menu
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-        <li><a href="../s/nieuw">Nieuwe Post</a></li>
-		<li><a href="../s/verwijder">Verwijder Categories</a></li>		
+        <li><a href="../s/nieuw">Nieuwe Post</a></li>	
         </ul>
       </li>
 <?php		
