@@ -90,7 +90,7 @@ if ($_POST['users'] == 'hernoem') //Rechten aanpassen
 $waarde = $_POST['id'];
 $data = $_POST['naam'];
 	try{
-$stmt = $db->prepare("UPDATE gebruikers SET name =:data WHERE id =:waarde ");
+$stmt = $db->prepare("UPDATE gebruikers SET naam =:data WHERE id =:waarde ");
 $stmt->execute(
 array(
 ':waarde' => $waarde, 
