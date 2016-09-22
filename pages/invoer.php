@@ -117,9 +117,7 @@ $hash = NEW PasswordStorage;
 $data = $_POST['wachtwoord'];
 $hashpass = $hash->create_hash($data);
 $naam = $_POST['naam'];
-	try{
-$stmt = $db->prepare("ALTER TABLE gebruikers AUTO_INCREMENT =2");
-$stmt->execute();		
+	try{	
 $stmt = $db->prepare("INSERT INTO gebruikers (naam,wachtwoord) VALUES (:naam,:data)");
 $stmt->execute(
 array(
