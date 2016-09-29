@@ -46,8 +46,8 @@ if ($_GET['post'])
 	<?php } //end staff ?>
 				</ul>
 </div>
-<div id="post" class='col-sm-11 col-lg-11'>			
-<div class="row alert alert-info">
+<div class='col-sm-11 col-lg-11'>			
+<div class="row alert alert-info hidden-print">
 <div class="col-md-4">
 Gemaakt door <font color="red"><?php echo $result['cu']; ?></font> @ <font color="purple"><?php echo $result['cts']; ?></font>
 </div>
@@ -58,9 +58,11 @@ Gemaakt door <font color="red"><?php echo $result['cu']; ?></font> @ <font color
 <?php echo ($result['eu']?"bewerkt bij <font color='red'> ".$result['eu']."</font> @ <font color='purple'>".$result['ets']."</font>":"");?>
 </div>
 </div>
+<div id="post">
 <?php		
 echo html_entity_decode($result['info']);
-?>	
+?>
+</div>	
 </div>
 	<script type="text/javascript">
 		function PrintElem(elem)
